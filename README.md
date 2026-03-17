@@ -3,4 +3,4 @@
 
 # PIXI Grid System
 
-Grid System implementation for PixiJS v5.
+Grid System implementation for PixiJS v8.
