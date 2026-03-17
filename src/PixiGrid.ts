@@ -189,7 +189,7 @@ export abstract class PixiGrid extends Container implements IPixiGrid {
             child.scale.set(1, 1);
         }
 
-        child.updateTransform();
+        child.updateTransform({});
     }
 
     public abstract getGridConfig(): ICellConfig;

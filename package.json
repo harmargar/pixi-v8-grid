@@ -52,6 +52,6 @@
     "dependencies": {
         "@armathai/grid-core": "^3.0.0",
         "core-js": "^3.11.2",
-        "pixi.js": "^6.0.2"
+        "pixi.js": "^8.17.1"
     }
 }
