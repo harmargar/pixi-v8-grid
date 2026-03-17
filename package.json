@@ -1,5 +1,5 @@
 {
-    "name": "@armathai/pixi-grid",
+    "name": "@har_mar/pixi-v8-grid",
     "version": "4.1.0",
     "description": "Pixi Grid System",
     "main": "dist/pixi-grid.cjs.js",
