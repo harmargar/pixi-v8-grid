@@ -192,7 +192,7 @@ export abstract class PixiGrid extends Container implements IPixiGrid {
             child.scale.set(1, 1);
         }
 
-        child.updateTransform({x:0,y:0,scaleX:1,scaleY:1});
+        child.updateTransform({ x: 0, y: 0, scaleX: 1, scaleY: 1 });
     }
 
     public abstract getGridConfig(): ICellConfig;
