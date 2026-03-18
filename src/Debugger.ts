@@ -103,8 +103,6 @@ export class Debugger extends Graphics {
         lineWidth: number,
         color: number = Debugger.defaultColor,
     ): void {
-        this.rect(x, y, w, h)
-            .fill({ color, alpha: 0.4 })
-            .stroke({ width: lineWidth, color, alpha: 1 });
+        this.rect(x, y, w, h).fill({ color, alpha: 0.4 }).stroke({ width: lineWidth, color, alpha: 1 });
     }
 }
