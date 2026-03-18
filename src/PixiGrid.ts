@@ -135,10 +135,13 @@ export abstract class PixiGrid extends Container implements IPixiGrid {
     }
 
     private _adjustChild(child: IPixiChild, cell: Cell<IContent>): void {
-        const childBounds = child.getBounds();
+        const initialBounds = child.getBounds();
 
-        this._scaleContent(child, cell, childBounds);
-        this._positionContent(child, cell, childBounds);
+        this._scaleContent(child, cell, initialBounds);
+
+        // Recompute bounds after scaling/resizing so alignment uses actual rendered size.
+        const adjustedBounds = child.getBounds();
+        this._positionContent(child, cell, adjustedBounds);
     }
 
     private _scaleContent(child: IPixiChild, cell: Cell<IContent>, childBounds: Rect): void {
@@ -171,15 +174,15 @@ export abstract class PixiGrid extends Container implements IPixiGrid {
         const worldScaleY = child.worldTransform.d / child.localTransform.d;
 
         const childDimensions = {
-            width: (childBounds.width / worldScaleX) * child.scale.x,
-            height: (childBounds.height / worldScaleY) * child.scale.y,
+            width: childBounds.width / worldScaleX,
+            height: childBounds.height / worldScaleY,
         };
 
         const pos = align(childDimensions, cell.area, cell.align);
         child.position.set(pos.x, pos.y);
 
-        child.x -= (childBounds.x / worldScaleX) * child.scale.x;
-        child.y -= (childBounds.y / worldScaleY) * child.scale.y;
+        child.x -= childBounds.x / worldScaleX;
+        child.y -= childBounds.y / worldScaleY;
     }
 
     private _resetContent(child: IPixiChild, cell: Cell<IContent>): void {
