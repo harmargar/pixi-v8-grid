@@ -1,6 +1,6 @@
 {
     "name": "@har_mar/pixi-v8-grid",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Pixi Grid System",
     "main": "dist/pixi-grid.cjs.js",
     "module": "dist/pixi-grid.esm.js",
