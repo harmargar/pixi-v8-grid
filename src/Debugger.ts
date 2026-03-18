@@ -62,7 +62,7 @@ export class Debug {
             return;
         }
 
-        this._debugger.fillRect(x, y, w, h, lineWidth, color);
+        this._debugger.strokeRect(x, y, w, h, lineWidth, color);
     }
 
     public fillRect(
@@ -77,7 +77,7 @@ export class Debug {
             return;
         }
 
-        this._debugger.strokeRect(x, y, w, h, lineWidth, color);
+        this._debugger.fillRect(x, y, w, h, lineWidth, color);
     }
 }
 
@@ -92,8 +92,7 @@ export class Debugger extends Graphics {
         lineWidth: number,
         color: number = Debugger.defaultColor,
     ): void {
-        this.lineStyle(lineWidth, color, 1);
-        this.drawRect(x, y, w, h);
+        this.rect(x, y, w, h).stroke({ width: lineWidth, color, alpha: 1 });
     }
 
     public fillRect(
@@ -104,9 +103,8 @@ export class Debugger extends Graphics {
         lineWidth: number,
         color: number = Debugger.defaultColor,
     ): void {
-        this.lineStyle(lineWidth, color, 1);
-        this.beginFill(color, 0.4);
-        this.drawRect(x, y, w, h);
-        this.endFill();
+        this.rect(x, y, w, h)
+            .fill({ color, alpha: 0.4 })
+            .stroke({ width: lineWidth, color, alpha: 1 });
     }
 }
